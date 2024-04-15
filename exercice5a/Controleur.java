@@ -1,4 +1,3 @@
-import java.awt.Color;
 public class Controleur
 {
 	private FrameGrille ihm;
@@ -10,19 +9,6 @@ public class Controleur
 		this.ihm    = new FrameGrille ( this );
 	}
 
-	// Pour Version 1
-	public Color getCouleur(int lig, int col)
-	{
-		switch ( metier.getVal(lig, col) )
-		{
-			case 'R' : return new Color ( 237,  27,  35);
-			case 'J' : return new Color ( 254, 242,   0);
-			case ' ' : return new Color (   0, 255, 255);
-		}
-
-		return null;
-	}
-
 	public String getIcon(int lig, int col)
 	{
 		switch ( metier.getVal(lig, col) )
@@ -31,7 +17,6 @@ public class Controleur
 			case 'J' : return "j.png";
 			case ' ' : return "v.png";
 		}
-
 		return null;
 	}
 

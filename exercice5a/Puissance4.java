@@ -23,9 +23,6 @@ public class Puissance4
 	public boolean placerJeton(int lig)
 	{
 		int cpt = 0;
-
-		int indX = 0;
-		int indY = 0;
 		
 		if(this.plateau[cpt][lig] != ' ')
 			return false;
@@ -37,7 +34,6 @@ public class Puissance4
 				if(i == plateau.length-1)
 				{
 					this.plateau[i][lig] = dJoueur.getCoul();
-					indY = i;
 					break;
 				}
 			}
@@ -46,9 +42,6 @@ public class Puissance4
 				this.plateau[--i][lig] = dJoueur.getCoul();
 				break;
 			}
-			
-			indX = lig;
-			indY = i;
 		}
 		
 		if(aGagner())
