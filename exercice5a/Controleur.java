@@ -15,9 +15,9 @@ public class Controleur
 	{
 		switch ( metier.getVal(lig, col) )
 		{
-			case 'R' : return new Color ( 237,  27,  35 );
-			case 'J' : return new Color ( 254, 242,   0 );
-			case ' ' : return new Color(0,255,255);
+			case 'R' : return new Color ( 237,  27,  35);
+			case 'J' : return new Color ( 254, 242,   0);
+			case ' ' : return new Color (   0, 255, 255);
 		}
 
 		return null;
@@ -27,9 +27,9 @@ public class Controleur
 	{
 		switch ( metier.getVal(lig, col) )
 		{
-			case 'R' : return "R.png";
-			case 'J' : return "J.png";
-			case ' ' : return "V.png";
+			case 'R' : return "r.png";
+			case 'J' : return "j.png";
+			case ' ' : return "v.png";
 		}
 
 		return null;
