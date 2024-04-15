@@ -99,7 +99,8 @@ public class PanelGrille extends JPanel implements ActionListener
 		// fleches du haut
 		for (int i = 0; i < this.ctrl.getNbColonne(); i++)
 			if (e.getSource() == tabButton[i])
-				this.ctrl.placerJeton(i);
+				if(this.ctrl.placerJeton(i))
+					System.exit(0);
 		
 		this.majIHM();
 	}

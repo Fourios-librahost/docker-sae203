@@ -53,9 +53,10 @@ public class Puissance4
 			indY = i;
 		}
 		
-		if(aGagner(indX, indY))
+		if(aGagner())
 		{
 			System.out.println("gg "+ dJoueur.getCoul());
+			return true;
 		}
 
 		if(dJoueur.equals(j1))
@@ -63,42 +64,62 @@ public class Puissance4
 		else 
 			dJoueur = j1;
 	
-		return true;
-	}
-
-	public boolean aGagner(int x, int y)
-	{   
-		//System.out.println(x + " " + y);
-		
-		//System.out.println(dJoueur.getCoul());
-		try
-		{
-
-			//System.out.println(x + " " + y + "A");
-			//BAS
-			if(this.plateau[y][x] == dJoueur.getCoul() && this.plateau[y+1][x] == dJoueur.getCoul() && this.plateau[y+2][x] == dJoueur.getCoul() && this.plateau[y+3][x] == dJoueur.getCoul())
-			{
-				System.out.println("oui BAS");
-				return true;
-			}
-
-			//GAUCHE
-			if(this.plateau[y][x] == dJoueur.getCoul() && this.plateau[y][x-1] == dJoueur.getCoul() && this.plateau[y][x-2] == dJoueur.getCoul() && this.plateau[y][x-3] == dJoueur.getCoul())
-			{
-				return true;
-			}
-
-			//DROITE
-			if(this.plateau[y][x] == dJoueur.getCoul() && this.plateau[y][x+1] == dJoueur.getCoul() && this.plateau[y][x+2] == dJoueur.getCoul() && this.plateau[y][x+3] == dJoueur.getCoul())
-			{
-				System.out.println("oui DROITE");
-				return true;
-			}
-
-		}
-		catch(Exception e){}
 		return false;
 	}
+
+	public boolean aGagner() {
+		// Vérification des lignes horizontales
+		for (int i = 0; i < plateau.length; i++) {
+			for (int j = 0; j <= plateau[i].length - 4; j++) {
+				if (plateau[i][j] != ' '
+						&& plateau[i][j] == plateau[i][j + 1]
+						&& plateau[i][j] == plateau[i][j + 2]
+						&& plateau[i][j] == plateau[i][j + 3]) {
+					return true;
+				}
+			}
+		}
+	
+		// Vérification des lignes verticales
+		for (int j = 0; j < plateau[0].length; j++) {
+			for (int i = 0; i <= plateau.length - 4; i++) {
+				if (plateau[i][j] != ' '
+						&& plateau[i][j] == plateau[i + 1][j]
+						&& plateau[i][j] == plateau[i + 2][j]
+						&& plateau[i][j] == plateau[i + 3][j]) {
+					return true;
+				}
+			}
+		}
+	
+		// Vérification des diagonales (vers le bas et vers la droite)
+		for (int i = 0; i <= plateau.length - 4; i++) {
+			for (int j = 0; j <= plateau[i].length - 4; j++) {
+				if (plateau[i][j] != ' '
+						&& plateau[i][j] == plateau[i + 1][j + 1]
+						&& plateau[i][j] == plateau[i + 2][j + 2]
+						&& plateau[i][j] == plateau[i + 3][j + 3]) {
+					return true;
+				}
+			}
+		}
+	
+		// Vérification des diagonales (vers le haut et vers la droite)
+		for (int i = plateau.length - 1; i >= 3; i--) {
+			for (int j = 0; j <= plateau[i].length - 4; j++) {
+				if (plateau[i][j] != ' '
+						&& plateau[i][j] == plateau[i - 1][j + 1]
+						&& plateau[i][j] == plateau[i - 2][j + 2]
+						&& plateau[i][j] == plateau[i - 3][j + 3]) {
+					return true;
+				}
+			}
+		}
+	
+		return false; // Aucun joueur n'a gagné
+	}
+	
+	
 
 	public String toString()
 	{
