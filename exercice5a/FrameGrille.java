@@ -20,7 +20,7 @@ public class FrameGrille extends JFrame
 
 		this.setTitle   ( "Connect 4" );
 		this.setLocation( (largeurEcran/3) - 200, (hauteurEcran/3) - 200 );
-		this.setSize    ( 100*7, 100*6 );
+		this.setSize    ( 140*7, 140*6 );
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.add ( this.panelGrille );
