@@ -55,7 +55,7 @@ cd docker-sae203/exercice5a
 
 - Compilez les fichiers :
 ```shell
-java *.java
+javac *.java
 ```
 
 - Lancez le jeu :
