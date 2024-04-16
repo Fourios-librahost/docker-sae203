@@ -27,7 +27,7 @@ Quant à la création du serveur et du client, nous avons fait en sorte qu'il y'
 Cela fait, une frame pour chaque client se mettant à jour automatiquement après qu'un des joueurs ait placé un jeton apparait et les joueurs peuvent commencer la partie.
 //image debut de  game
 
-A la fin, quand un joueur gagne, un message sortant dans le terminal du serveur indique le gagnant et les frames se ferment. Si personne ne gagne, personne n'est mentionné dans le terminal du serveur et les frames se ferment.
+A la fin, quand un joueur gagne, un message sortant dans les terminaux des clients indique le gagnant et les frames se ferment.
 ![Image](./imge.png)
 
 ## Docker
