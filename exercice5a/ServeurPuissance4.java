@@ -8,40 +8,35 @@ public class ServeurPuissance4 {
 		try (ServerSocket serverSocket = new ServerSocket(PORT)) {
 			System.out.println("Le serveur est en attente de connexions...");
 
-			while (true) 
-			{
-				Socket joueur1Socket = serverSocket.accept();
-				System.out.println("Joueur 1 connecté : " + joueur1Socket);
-				Socket joueur2Socket = serverSocket.accept();
-				System.out.println("Joueur 2 connecté : " + joueur2Socket);
+			Socket joueur1Socket = serverSocket.accept();
+			System.out.println("Joueur 1 connecté : " + joueur1Socket);
+			Socket joueur2Socket = serverSocket.accept();
+			System.out.println("Joueur 2 connecté : " + joueur2Socket);
 
-				PrintWriter joueur1Out = new PrintWriter(joueur1Socket.getOutputStream(), true);
+			PrintWriter joueur1Out = new PrintWriter(joueur1Socket.getOutputStream(), true);
 
-				BufferedReader joueur1In = new BufferedReader(new InputStreamReader(joueur1Socket.getInputStream()));
+			BufferedReader joueur1In = new BufferedReader(new InputStreamReader(joueur1Socket.getInputStream()));
 
-				PrintWriter joueur2Out = new PrintWriter(joueur2Socket.getOutputStream(), true);
+			PrintWriter joueur2Out = new PrintWriter(joueur2Socket.getOutputStream(), true);
 
-				BufferedReader joueur2In = new BufferedReader(new InputStreamReader(joueur2Socket.getInputStream()));
-				joueur1Out.println("j1");
-				joueur2Out.println("j2");
-				try
+			BufferedReader joueur2In = new BufferedReader(new InputStreamReader(joueur2Socket.getInputStream()));
+			joueur1Out.println("j1");
+			joueur2Out.println("j2");
+				while (true)
 				{
-					while (true)
-					{
-						int coupJoueur1 = Integer.parseInt(joueur1In.readLine());
-						joueur2Out.println(coupJoueur1);
+					try{
+					int coupJoueur1 = Integer.parseInt(joueur1In.readLine());
+					joueur2Out.println(coupJoueur1);
+					}catch(IOException | NumberFormatException e) {break;}
 
-						int coupJoueur2 = Integer.parseInt(joueur2In.readLine());
-						if (coupJoueur1 == 66) {break;}
-						joueur1Out.println(coupJoueur2);
-					}
-				} catch (IOException e)
-				{
-					e.printStackTrace();
+					try{
+					int coupJoueur2 = Integer.parseInt(joueur2In.readLine());
+					joueur1Out.println(coupJoueur2);
+					}catch(IOException | NumberFormatException e) {break;}
 				}
-				joueur1Socket.close();
-				joueur2Socket.close();
-			}
+			joueur1Socket.close();
+			joueur2Socket.close();
+		
 		} catch (IOException e) { e.printStackTrace();}
 	}
 }
