@@ -2,7 +2,8 @@ FROM debian:latest
 
 RUN apt-get update && \
     apt-get -y install openjdk-17-jre && \
-    apt-get -y install openjdk-17-jdk
+    apt-get -y install openjdk-17-jdk && \
+    apt-get -y install screen
 
 COPY ./exercice5a /app/exercice5a
 
