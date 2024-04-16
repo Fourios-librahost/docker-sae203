@@ -13,6 +13,8 @@
 Le Puissance 4 final se présente sous la forme ci-dessous :
 ![Image](./connect4.png)
 
+## Puissance 4
+
 Pour la création du Puissance 4, nous l'affichons avec une interface graphique en swing. Notre puissance 4 est constitué d'une frame pour qu'il soit en en dehors d'un terminal et que cela soit plus simple à utiliser plutôt que de rentre des coordonnées dans le terminal, cela est donc plus simple pour jouer. 
 //image puissance 4 au debut
 
@@ -28,10 +30,12 @@ Cela fait, une frame pour chaque client se mettant à jour automatiquement aprè
 A la fin, quand un joueur gagne, un message sortant dans le terminal du serveur indique le gagnant et les frames se ferment. Si personne ne gagne, personne n'est mentionné dans le terminal du serveur et les frames se ferment.
 //image fin terminal
 
+## Docker
+
 Enfin le docker fait fonctionner les différentes frames des clients en réseau.
 //image docker
 
-Tout cela a permit de faire fonctionner en réseau notre Puissance 4 fonctionnel.
+Tout cela a permit de faire fonctionner en réseau notre Puissance 4.
 
 ## Problèmes rencontrés :
 
