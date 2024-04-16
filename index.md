@@ -24,8 +24,8 @@ Nous avons donc ajouté sur cette frame des boutons dans les cases du tableau po
 Quant à la création du serveur et du client, nous avons fait en sorte qu'il y'ait une connexion entre le client et le serveur, le client n'a juste qu'à renseigner l'IP et lorsque deux clients sont connectés, la partie peut commencer. 
 ![Image](./img.png)
 
-Cela fait, une frame pour chaque client se mettant à jour automatiquement après qu'un des joueurs ait placé un jeton apparait et les joueurs peuvent commencer la partie.
-//image debut de  game
+Cela fait, une frame pour chaque client se mettant à jour automatiquement après qu'un des joueurs ait placé un jeton apparait et les joueurs peuvent commencer la partie. Nous avons pu voir plus haut le rendu du début de partie, au fil de la partie cela donnerait par exemple :
+![Image](./double.png)
 
 A la fin, quand un joueur gagne, un message sortant dans les terminaux des clients indique le gagnant et les frames se ferment.
 ![Image](./imge.png)
