@@ -28,7 +28,7 @@ Cela fait, une frame pour chaque client se mettant à jour automatiquement aprè
 //image debut de  game
 
 A la fin, quand un joueur gagne, un message sortant dans le terminal du serveur indique le gagnant et les frames se ferment. Si personne ne gagne, personne n'est mentionné dans le terminal du serveur et les frames se ferment.
-![Image](./img.png)
+![Image](./imge.png)
 
 ## Docker
 
