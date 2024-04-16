@@ -2,10 +2,10 @@ import java.io.*;
 import java.net.*;
 
 public class ClientPuissance4 {
-	private static final String SERVER_ADDRESS = "192.168.1.104";
 	private static final int PORT = 5000;
 
 	public static void main(String[] args) {
+		final String SERVER_ADDRESS = args[0];
 		try {
 			InetAddress hostName = InetAddress.getByName(SERVER_ADDRESS);
 			Socket socket = new Socket(hostName, PORT);
