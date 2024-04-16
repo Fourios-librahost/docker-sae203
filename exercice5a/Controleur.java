@@ -1,8 +1,10 @@
 import java.awt.Color;
+import javax.swing.JFrame;
 public class Controleur
 {
 	private FrameGrille ihm;
 	private Puissance4  metier;
+	private int i;
 
 	public Controleur()
 	{
@@ -47,6 +49,8 @@ public class Controleur
 		return metier.getGrille();
 	}
 
+	public JFrame getIhm() {return this.ihm;}
+
 	public void majIHM()
 	{
 		ihm.majIHM();
@@ -56,4 +60,9 @@ public class Controleur
 	{
 		new Controleur();
 	}
+
+	public void setEnabled(boolean i){ this.ihm.enabled(i);}
+
+	public void setInt(int i) {this.i = i;}
+	public int getInt() {return this.i;}
 }

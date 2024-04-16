@@ -28,6 +28,7 @@ public class FrameGrille extends JFrame
 		this.setVisible ( true );
 	}
 
+	public void enabled(boolean i) {panelGrille.enabled(i);}
 	public void majIHM()
 	{
 		this.panelGrille.majIHM();

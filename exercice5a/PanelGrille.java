@@ -10,8 +10,6 @@ public class PanelGrille extends JPanel implements ActionListener
 	Controleur ctrl;
 
 	JButton[][] tabLblCase;
-	JButton[]  tabButton;
-
 
 	public PanelGrille(Controleur ctrl)
 	{
@@ -56,14 +54,25 @@ public class PanelGrille extends JPanel implements ActionListener
 				this.tabLblCase[lig][col].setIcon(new ImageIcon(this.ctrl.getIcon(lig, col)));
 	}
 
+	public void enabled(boolean inf)
+	{
+			for (int i=0; i<this.tabLblCase.length; i++)
+				for (int j=0; j<this.tabLblCase[0].length; j++)
+					{
+						tabLblCase[i][j].setEnabled(inf);
+					}
+	}
+
 	public void actionPerformed(ActionEvent e)
 	{
 		for (int lig = 0; lig < this.tabLblCase.length; lig++)
 			for (int col = 0; col < this.tabLblCase[lig].length; col++)
 				if (e.getSource() == tabLblCase[lig][col])
+				{
+					this.ctrl.setInt(col);
 					if (this.ctrl.placerJeton(col))
 						System.exit(0);
-		
+				}
 		this.majIHM();
 	}
 }

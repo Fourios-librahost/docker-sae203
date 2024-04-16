@@ -12,30 +12,32 @@ public class ServeurPuissance4 {
 			{
 				Socket joueur1Socket = serverSocket.accept();
 				System.out.println("Joueur 1 connecté : " + joueur1Socket);
-
 				Socket joueur2Socket = serverSocket.accept();
 				System.out.println("Joueur 2 connecté : " + joueur2Socket);
 
-				ObjectOutputStream joueur1Out = new ObjectOutputStream(joueur1Socket.getOutputStream());
-				ObjectInputStream joueur1In = new ObjectInputStream(joueur1Socket.getInputStream());
+				PrintWriter joueur1Out = new PrintWriter(joueur1Socket.getOutputStream(), true);
+				//ObjectOutputStream joueur1Out = new ObjectOutputStream(joueur1Socket.getOutputStream());
+				BufferedReader joueur1In = new BufferedReader(new InputStreamReader(joueur1Socket.getInputStream()));
 
-				ObjectOutputStream joueur2Out = new ObjectOutputStream(joueur2Socket.getOutputStream());
-				ObjectInputStream joueur2In = new ObjectInputStream(joueur2Socket.getInputStream());
-
-				Controleur ctrl = new Controleur();
-
-				while (!ctrl.aGagner()) 
+				PrintWriter joueur2Out = new PrintWriter(joueur2Socket.getOutputStream(), true);
+				//ObjectOutputStream joueur2Out = new ObjectOutputStream(joueur2Socket.getOutputStream());
+				BufferedReader joueur2In = new BufferedReader(new InputStreamReader(joueur2Socket.getInputStream()));
+				joueur1Out.println("j1");
+				joueur2Out.println("j2");
+				try
 				{
-					int coupJoueur1 = joueur1In.readInt();
-					ctrl.placerJeton(coupJoueur1);
-					joueur1Out.writeObject(ctrl.getGrille());
-
-					if (!ctrl.aGagner()) 
+					while (true)
 					{
-						int coupJoueur2 = joueur2In.readInt();
-						ctrl.placerJeton(coupJoueur2);
-						joueur2Out.writeObject(ctrl.getGrille());
+						int coupJoueur1 = Integer.parseInt(joueur1In.readLine());
+						joueur2Out.println(coupJoueur1);
+
+						int coupJoueur2 = Integer.parseInt(joueur2In.readLine());
+						if (coupJoueur1 == 66) {break;}
+						joueur1Out.println(coupJoueur2);
 					}
+				} catch (IOException e)
+				{
+					e.printStackTrace();
 				}
 				joueur1Socket.close();
 				joueur2Socket.close();
