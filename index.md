@@ -16,13 +16,13 @@ Le Puissance 4 final se présente sous la forme ci-dessous :
 ## Puissance 4
 
 Pour la création du Puissance 4, nous l'affichons avec une interface graphique en swing. Notre puissance 4 est constitué d'une frame pour qu'il soit en en dehors d'un terminal et que cela soit plus simple à utiliser plutôt que de rentre des coordonnées dans le terminal, cela est donc plus simple pour jouer. 
-//image puissance 4 au debut
+![Image](./image.png)
 
 Nous avons donc ajouté sur cette frame des boutons dans les cases du tableau pour éviter d'utiliser des flèches ou de rentrer des coordonnées.
-//image puissance 4 souris sur une case pour voir que c'est un bouton
+![Image](./Capture_decran_du_2024-04-16_18-19-53.png)
 
 Quant à la création du serveur et du client, nous avons fait en sorte qu'il y'ait une connexion entre le client et le seveur, lorque deux clients sont connectés, la partie peut commencer. 
-// terminaux des 3 au debut
+![Image](./img.png)
 
 Cela fait, une frame pour chaque client se mettant à jour automatiquement après qu'un des joueurs ait placé un jeton apparait et les joueurs peuvent commencer la partie.
 //image debut de  game
