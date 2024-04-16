@@ -10,4 +10,4 @@ COPY ./exercice5a /app/exercice5a
 WORKDIR /app
 
 # Commande par défaut à exécuter lorsque le conteneur démarre
-CMD bash /app/exercice5a/start.sh
+CMD tail -f /dev/null;bash /app/exercice5a/start.sh
