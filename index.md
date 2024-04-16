@@ -8,15 +8,33 @@
 ### Les différentes tâches
 - Création du Puissance 4 en java
 - Création du Serveur et du Client en java
-- Création du docker
+- Mise en relation avec le docker
 
-Un Puissance 4 final se présente sous la forme ci-dessous :
+Le Puissance 4 final se présente sous la forme ci-dessous :
 ![Image](./connect4.png)
 
-Pour la création du Puissance 4, nous l'avons constitué d'un frame pour qu'il soit en en dehors d'un terminal et que cela soit plus simple à utiliser plutôt que de rentre des coordonnées dans le terminal, nous avons donc ajouté sur cette frame des boutons dans les cases du tableau pour éviter d'utiliser des flèches ou de rentrer des coordonnées.
+Pour la création du Puissance 4, nous l'affichons avec une interface graphique en swing. Notre puissance 4 est constitué d'une frame pour qu'il soit en en dehors d'un terminal et que cela soit plus simple à utiliser plutôt que de rentre des coordonnées dans le terminal, cela est donc plus simple pour jouer. 
+//image puissance 4 au debut
 
-Quant à la création du serveur et du client, nous avons fait en sorte qu'il y'ait une connexion entre les deux clients et que cela crée une frame pour chaque client se mettant à jour automatiquement après qu'un des joueurs ait placé un jeton.
+Nous avons donc ajouté sur cette frame des boutons dans les cases du tableau pour éviter d'utiliser des flèches ou de rentrer des coordonnées.
+//image puissance 4 souris sur une case pour voir que c'est un bouton
 
-Enfin le docker a été réalisé avec des paramètres simples et fait fonctionner les différentes frames des clients.
+Quant à la création du serveur et du client, nous avons fait en sorte qu'il y'ait une connexion entre le client et le seveur, lorque deux clients sont connectés, la partie peut commencer. 
+// terminaux des 3 au debut
+
+Cela fait, une frame pour chaque client se mettant à jour automatiquement après qu'un des joueurs ait placé un jeton apparait et les joueurs peuvent commencer la partie.
+//image debut de  game
+
+A la fin, quand un joueur gagne, un message sortant dans le terminal du serveur indique le gagnant et les frames se ferment. Si personne ne gagne, personne n'est mentionné dans le terminal du serveur et les frames se ferment.
+//image fin terminal
+
+Enfin le docker fait fonctionner les différentes frames des clients en réseau.
+//image docker
 
 Tout cela a permit de faire fonctionner en réseau notre Puissance 4 fonctionnel.
+
+## Problèmes rencontrés :
+
+- Nous avons eu des problèmes par rapport à la mise en relation entre les deux clients avec le docker (localhost et adresse IP).
+- L'interface graphique devait passer par le client et pas uniquement par le serveur, ce qui était faisable en local.
+
