@@ -8,78 +8,85 @@ public class ClientPuissance4 {
 		final String SERVER_ADDRESS = args[0];
 		try {
 			InetAddress hostName = InetAddress.getByName(SERVER_ADDRESS);
-			Socket socket = new Socket(hostName, PORT);
+			Socket socket = new Socket(SERVER_ADDRESS, PORT);
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			//ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			System.out.println("Connecté au serveur Puissance 4.");
-			//in.readLine();
-			Controleur ctrl= new Controleur();
-			while (true)
+
+			int coupAutre;
+			Controleur ctrl = new Controleur();
+			if (in.readLine().equals("j1"))
 			{
-				try{
-					if (in.readLine().equals("j1"))
+				System.out.println("j1");
+				while (!ctrl.aGagner())
+				{
+					boolean changement = false;
+					while (!changement)
 					{
-						System.out.println("j1");
-						while(!ctrl.aGagner())
+						changement = ctrl.getAChange();
+						try
 						{
-							int ss = ctrl.getInt();
-							int sv = ctrl.getInt();
-							while (ss == sv) { sv = ctrl.getInt(); 
-								try
-								{
-									Thread.sleep(50);
-								} catch (InterruptedException e)
-								{
-									System.out.println(e);
-								}}
-							out.println(sv);
-							ctrl.setEnabled(false);
-							int coupAutre = Integer.parseInt(in.readLine());
-							ctrl.setEnabled(true);
-							ctrl.placerJeton(coupAutre);
-							ctrl.majIHM();
-							}
-					}
-					else
-					{
-						System.out.println("j2");
-						while (!ctrl.aGagner())
+							Thread.sleep(50);
+						} catch (InterruptedException e)
 						{
-							ctrl.setEnabled(false);
-							int coupAutre = Integer.parseInt(in.readLine());
-							ctrl.setEnabled(true);
-							ctrl.placerJeton(coupAutre);
-							ctrl.majIHM();
-							int ss = ctrl.getInt();
-							int sv = ctrl.getInt();
-							while (ss == sv)
-							{
-								sv = ctrl.getInt();
-								try
-								{
-									Thread.sleep(500);
-								} catch (InterruptedException e)
-								{
-									System.out.println(e);
-								}
-							}
-							out.println(sv);
+							System.out.println(e);
 						}
 					}
-				} catch(IOException e) { 
-					System.out.println("Jeu Terminé"); break;}
+					out.println(ctrl.getInt());
+					ctrl.setAChange(false);
+					ctrl.setEnabled(false);
+					try
+					{
+						coupAutre = Integer.parseInt(in.readLine());
+						ctrl.placerJeton(coupAutre);
+					} catch (IOException | NumberFormatException e)
+					{
+						System.out.println("Votre adversaire à gagner");
+						break;
+					}
+					ctrl.majIHM();
+					ctrl.setEnabled(true);
+				}
 			}
-/*
-			while (true) 
+			else
 			{
-				try
-				{ 
-					JFrame serverResponse = (JFrame) in.readObject();
-				}catch(IOException | ClassNotFoundException e) { 
-					System.out.println("Jeu Terminé"); break;}
-			}*/
-		} catch (IOException e) { e.printStackTrace();}
+				System.out.println("j2");
+				while (!ctrl.aGagner())
+				{
+					ctrl.setEnabled(false);
+					try
+					{
+						coupAutre = Integer.parseInt(in.readLine());
+						ctrl.placerJeton(coupAutre);
+					} catch (IOException | NumberFormatException e)
+					{
+						System.out.println("Votre adversaire à gagner");
+						break;
+					}
+					ctrl.setEnabled(true);
+					ctrl.majIHM();
+					boolean changement = false;
+					while (!changement)
+					{
+						changement = ctrl.getAChange();
+						try
+						{
+							Thread.sleep(50);
+						} catch (InterruptedException e)
+						{
+							System.out.println(e);
+						}
+					}
+					out.println(ctrl.getInt());
+					ctrl.setAChange(false);
+				}
+			}
+			socket.close();
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 }

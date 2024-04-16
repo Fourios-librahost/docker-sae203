@@ -16,11 +16,11 @@ public class ServeurPuissance4 {
 				System.out.println("Joueur 2 connecté : " + joueur2Socket);
 
 				PrintWriter joueur1Out = new PrintWriter(joueur1Socket.getOutputStream(), true);
-				//ObjectOutputStream joueur1Out = new ObjectOutputStream(joueur1Socket.getOutputStream());
+
 				BufferedReader joueur1In = new BufferedReader(new InputStreamReader(joueur1Socket.getInputStream()));
 
 				PrintWriter joueur2Out = new PrintWriter(joueur2Socket.getOutputStream(), true);
-				//ObjectOutputStream joueur2Out = new ObjectOutputStream(joueur2Socket.getOutputStream());
+
 				BufferedReader joueur2In = new BufferedReader(new InputStreamReader(joueur2Socket.getInputStream()));
 				joueur1Out.println("j1");
 				joueur2Out.println("j2");

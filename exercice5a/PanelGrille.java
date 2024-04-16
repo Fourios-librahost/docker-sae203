@@ -70,6 +70,7 @@ public class PanelGrille extends JPanel implements ActionListener
 				if (e.getSource() == tabLblCase[lig][col])
 				{
 					this.ctrl.setInt(col);
+					this.ctrl.setAChange(true);
 					if (this.ctrl.placerJeton(col))
 						System.exit(0);
 				}

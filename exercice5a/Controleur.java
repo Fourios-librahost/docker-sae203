@@ -1,28 +1,16 @@
-import java.awt.Color;
 import javax.swing.JFrame;
 public class Controleur
 {
 	private FrameGrille ihm;
 	private Puissance4  metier;
 	private int i;
+	private boolean aChange;
 
 	public Controleur()
 	{
 		this.metier = new Puissance4(new Joueur("M",'J'), new Joueur("ou", 'R'));
 		this.ihm    = new FrameGrille ( this );
-	}
-
-	// Pour Version 1
-	public Color getCouleur(int lig, int col)
-	{
-		switch ( metier.getVal(lig, col) )
-		{
-			case 'R' : return new Color ( 237,  27,  35);
-			case 'J' : return new Color ( 254, 242,   0);
-			case ' ' : return new Color (   0, 255, 255);
-		}
-
-		return null;
+		this.aChange = false;
 	}
 
 	public String getIcon(int lig, int col)
@@ -33,7 +21,6 @@ public class Controleur
 			case 'J' : return "j.png";
 			case ' ' : return "v.png";
 		}
-
 		return null;
 	}
 
@@ -65,4 +52,7 @@ public class Controleur
 
 	public void setInt(int i) {this.i = i;}
 	public int getInt() {return this.i;}
+
+	public void setAChange(boolean b) {this.aChange = b;}
+	public boolean getAChange() { return this.aChange;}
 }
